@@ -1,0 +1,21 @@
+{
+    "authors": [
+        {
+            "name": "Codexpert",
+            "email": "hi@codexpert.io"
+        }
+    ],
+    "require": {
+        "codexpert/plugin": "dev-master",
+        "pluggable/marketing": "dev-master",
+        "pluggable/plugin": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codexpert\\WpToEpaymaker\\" : "classes/",
+            "Codexpert\\WpToEpaymaker\\App\\" : "app/",
+            "Codexpert\\WpToEpaymaker\\API\\" : "api/"
+        },
+        "files": [ "inc/functions.php" ]
+    }
+}
