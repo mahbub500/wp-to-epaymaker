@@ -73,15 +73,6 @@ class Front extends Base {
 
 		$response = wp_remote_post( $endpoint, $options );
 
-		if ( is_wp_error( $response ) ) {
-			$error_message = $response->get_error_message();
-			echo "Something went wrong: ";
-		} else {
-			echo 'Response:<pre>';
-			print_r( $response );
-			echo '</pre>';
-		}
-
 		// Helper::pri( $response );
 // 		{
 //     "txnReferenceID": "txnReferenceID",
