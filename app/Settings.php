@@ -49,18 +49,18 @@ class Settings extends Base {
 			// 'position'   => 25,
 			// 'topnav'	=> true,
 			'sections'      => [
-				'wp-to-epaymaker_basic'	=> [
-					'id'        => 'wp-to-epaymaker_basic',
+				'wp-epaymaker'	=> [
+					'id'        => 'wp-epaymaker',
 					'label'     => __( 'Basic Settings', 'wp-to-epaymaker' ),
 					'icon'      => 'dashicons-admin-tools',
 					// 'color'		=> '#4c3f93',
 					'sticky'	=> false,
 					'fields'    => [
 						'merchantId' => [
-							'id'        => 'merchantId',
-							'label'     => __( 'Enter Merchant id', 'wp-to-epaymaker' ),
-							'type'      => 'text',
-							'desc'      => __( 'This is a text field.', 'wp-to-epaymaker' ),
+							'id'		=> 'merchantId',
+							'label'		=> __( 'Enter Merchant id', 'wp-to-epaymaker' ),
+							'type'		=> 'text',
+							'desc'		=> __( 'If check test mode will run.', 'wp-to-epaymaker' ),
 							// 'class'     => '',
 							'default'   => '',
 							'readonly'  => false, // true|false
@@ -75,6 +75,15 @@ class Settings extends Base {
 							'default'   => '',
 							'readonly'  => false, // true|false
 							'disabled'  => false, // true|false
+						],
+						'is_test_mode' => [
+							'id'      => 'is_test_mode',
+							'label'     => __( 'Test Mode', 'wp-to-epaymaker' ),
+							'type'      => 'checkbox',
+							'desc'      => __( 'This is a checkbox field.', 'wp-to-epaymaker' ),
+							// 'class'     => '',
+							'disabled'  => false, // true|false
+							'default'   => 'on'
 						],
 						'sample_number' => [
 							'id'      => 'sample_number',

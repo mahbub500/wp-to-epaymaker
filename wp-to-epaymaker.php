@@ -181,7 +181,7 @@ final class Plugin {
 			 * Shortcode related hooks
 			 */
 			$shortcode = new App\Shortcode( $this->plugin );
-			$shortcode->register( 'profile', 'profile' );
+			// $shortcode->register( 'profile', 'profile' );
 
 		endif;
 

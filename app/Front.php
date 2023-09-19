@@ -39,9 +39,18 @@ class Front extends Base {
 		$currency 		= $order->get_currency(); 
 		$billing_f_name = $order->get_billing_first_name(); 
 		$billing_l_name = $order->get_billing_last_name(); 
+		$merchantId 	= Helper::get_option( 'wp-epaymaker','merchantId' );
+		$is_test_mode 	= Helper::get_option( 'wp-epaymaker','is_test_mode' );
 		$billing_location 	= $order->get_billing_address_1(); 
 		$billing_email 		= $order->get_billing_email(); 
 		$billing_postcode 	= $order->get_billing_postcode(); 
+		$merchantPassword 	= Helper::get_option( 'wp-epaymaker','merchant_password' );
+		$test 			= 'test';
+		if ( 'on' == $is_test_mode ) {
+			$test = 'test';
+		}
+
+		// Helper::pri( $merchantId );
 
 		$endpoint = 'https://dashboard.epayeer.co/api/check/purchase';
 
@@ -53,15 +62,15 @@ class Front extends Base {
 			'address1' 		=> $billing_location,
 			'postalCode' 	=> $billing_postcode,
 			'email' 		=> $billing_email,
-			'merchantId' 	=> 'EMP58646814512',
-			'mode' 			=> 'test',
+			'merchantId' 	=> $merchantId,
+			'mode' 			=> $test,
 			'number' 		=> '4242424242424242',
-			'securityCode' 	=> '039',
+			'merchantPassword' 	=> $merchantPassword,
+			'securityCode' 		=> '039',
 			'expirationMonth' 	=> '08',
 			'expirationYear' 	=> '2025',
 			'country' 			=> 'USA',
 			'txnReferenceID' 	=> 'txnReferenceID',
-			'merchantPassword' 	=> '$2y$10$KIrggRQoJMgrnarmRigR2.twAF16IS57Kr/HjeZhuDhxNjlH4/WKm',
 		];
 
 		$body = wp_json_encode( $body );
