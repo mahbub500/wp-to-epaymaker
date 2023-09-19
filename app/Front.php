@@ -43,7 +43,7 @@ class Front extends Base {
 		$billing_email 		= $order->get_billing_email(); 
 		$billing_postcode 	= $order->get_billing_postcode(); 
 
-		$endpoint = 'https://epaymaker.com/api/check/purchase';
+		$endpoint = 'https://dashboard.epayeer.co/api/check/purchase';
 
 		$body = [ 
 			'totalAmount' 	=> $order_total,
@@ -53,6 +53,15 @@ class Front extends Base {
 			'address1' 		=> $billing_location,
 			'postalCode' 	=> $billing_postcode,
 			'email' 		=> $billing_email,
+			'merchantId' 	=> 'EMP58646814512',
+			'mode' 			=> 'test',
+			'number' 		=> '4242424242424242',
+			'securityCode' 	=> '039',
+			'expirationMonth' 	=> '08',
+			'expirationYear' 	=> '2025',
+			'country' 			=> 'USA',
+			'txnReferenceID' 	=> 'txnReferenceID',
+			'merchantPassword' 	=> '$2y$10$KIrggRQoJMgrnarmRigR2.twAF16IS57Kr/HjeZhuDhxNjlH4/WKm',
 		];
 
 		$body = wp_json_encode( $body );
@@ -74,24 +83,23 @@ class Front extends Base {
 		$response = wp_remote_post( $endpoint, $options );
 
 		// Helper::pri( $response );
-// 		{
-//     "txnReferenceID": "txnReferenceID",
-//     "merchantId": "EPM53962246683",
+// {
+//     "merchantId": "EMP58646814512",
 //     "number": "4242424242424242",
 //     "mode": "test",
 //     "expirationMonth": "08",
 //     "expirationYear": "2025",
 //     "securityCode": "039",
-//     "totalAmount": "60",
+//     "totalAmount": "88",
 //     "currency": "USD",
-//     "firstName": "hsblco",
-//     "lastName": "solution",
+//     "firstName": "Rasel",
+//     "lastName": "Hossain",
 //     "address1": "1 Market St",
 //     "locality": "dhaka",
 //     "postalCode": "94105",
 //     "country": "US",
-//     "email": "hsblco-user@gmail.com",
-//     "merchantPassword": "$2y$10$z8c.3HobTEbvw9EwMk6Dz.eGdovmbsPxrtBQCU/dw0squKcnfDz7W"
+//     "email": "dylytu@mailinator.com",
+//     "merchantPassword": "$2y$10$KIrggRQoJMgrnarmRigR2.twAF16IS57Kr/HjeZhuDhxNjlH4/WKm"
 // }
 
 		// wp_send_post( '' )
