@@ -71,6 +71,7 @@ class Front extends Base {
 			'expirationYear' 	=> '2025',
 			'country' 			=> 'USA',
 			'txnReferenceID' 	=> 'txnReferenceID',
+			// 'description' 		=> 'HSBLCO LLC || Solution for a Digital World - Order ' . $order_id,
 		];
 
 		$body = wp_json_encode( $body );
@@ -89,7 +90,7 @@ class Front extends Base {
 			'data_format' => 'body',
 		];
 
-		$response = wp_remote_post( $endpoint, $options );
+		// $response = wp_remote_post( $endpoint, $options );
 
 		// Helper::pri( $response );
 // {
